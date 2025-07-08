@@ -1,0 +1,10 @@
+Problem Statement:
+Design and implement a Student Report Card Management System using Python that
+allows a teacher to:
+
+● Add new student records (name, roll number, subject-wise marks).
+● View the report of all students.
+● Display the topper(s) of the class based on average marks.
+● Search for a student by roll number.
+● Display all students who have failed in one or more subjects.
+● Optionally update marks of any student.
