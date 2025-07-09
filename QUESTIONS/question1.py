@@ -49,6 +49,3 @@ print("Max:", max_num)
 print("Min:", min_num)
 print("Sorted List:", sorted_numbers_manual)
 print("Unique List:", unique_numbers_manual)
-
-
-

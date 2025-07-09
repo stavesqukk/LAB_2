@@ -9,7 +9,7 @@ averages = {}
 n = int(input("Enter the number of students: "))
 for i in range(n):
     name = input(f"Enter the name of student {i+1}: ")
-    name.lower()
+    name = name.lower()  # Store names in lowercase
     marks = []
     for j in range(3):
         mark = int(input(f"Enter mark of subject {j+1} for {name}  (total marks 100): "))
@@ -25,18 +25,24 @@ for name, marks in students.items():
 topper = max(averages, key=averages.get)
 print(f"\nTopper: {topper} with average marks {averages[topper]:.2f}")
 
-update_name = input("\nEnter the name of the student whose marks you want to update: ")
+update_name = input("\nEnter the name of the student whose marks you want to update: ").lower()
 
 if update_name in students:
     print(f"Current marks for {update_name}: {students[update_name]}")
     while True: 
-        subject_no = int(input("Enter the subject number to update (1/2/3): "))
-        if 1 <= subject_no <= 3:
-            new_mark = int(input(f"Enter new mark for subject {subject_no} (out of 100): "))
-            students[update_name][subject_no - 1] = new_mark
-            print(f"Updated marks for {update_name}: {students[update_name]}")
-        else:
-            print("Invalid subject number. Please enter 1, 2, or 3.")
+        try:
+            subject_no = int(input("Enter the subject number to update (1/2/3): "))
+            if 1 <= subject_no <= 3:
+                new_mark = int(input(f"Enter new mark for subject {subject_no} (out of 100): "))
+                students[update_name][subject_no - 1] = new_mark
+                print(f"Updated marks for {update_name}: {students[update_name]}")
+                # Update average after change
+                averages[update_name] = sum(students[update_name]) / len(students[update_name])
+            else:
+                print("Invalid subject number. Please enter 1, 2, or 3.")
+        except ValueError:
+            print("Please enter a valid number.")
+            continue
         cont = input("Do you want to update another subject for this student? (yes/no): ").strip().lower()
         if cont != "yes":
             break
