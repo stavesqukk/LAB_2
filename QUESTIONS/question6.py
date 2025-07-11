@@ -7,9 +7,11 @@ for i in range(n):
     element = int(input("Enter an element to add to the tuple: "))
     tuple += (element,)
 print("Current Tuple:", tuple)
+
 # Calculate average
 average = sum(tuple) / n
 print("Average:", average)
+
 # Calculate median
 sorted_tuple = sorted(tuple)
 if n % 2 == 0:
@@ -17,6 +19,7 @@ if n % 2 == 0:
 else:
     median = sorted_tuple[n // 2]
 print("Median:", median)
+
 #calculate mode 
 uniq = {}
 for i in tuple:
